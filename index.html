@@ -1,87 +1,130 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>quà trung thu cho anhi neee 🌕</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quà Trung Thu 🌕</title>
 <style>
-html,body{
-  margin:0; padding:0; height:100%; overflow:hidden;
-  background:radial-gradient(circle at 50% 120%, #0b1026, #030712);
-  font-family:'Poppins',sans-serif; color:#fff; text-align:center;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(#0b1026,#151b3a);
+  color:white;
+  overflow:hidden;
+  height:100vh;
 }
-#moon{
-  position:absolute; top:80px; left:50%; width:150px; height:150px;
-  background:radial-gradient(circle at 40% 40%, #fff8c7, #ffe174 60%, #e4c45f 90%);
-  border-radius:50%; transform:translateX(-50%);
-  box-shadow:0 0 60px 20px #ffe17455;
-  animation:glow 4s ease-in-out infinite alternate;
+h1{
+  position:absolute;
+  top:8%;
+  width:100%;
+  text-align:center;
+  font-size:2em;
+  color:#ffe174;
+  text-shadow:0 0 20px #ffe174aa;
+  animation:fadeIn 2s ease forwards;
 }
-@keyframes glow{to{box-shadow:0 0 80px 30px #ffe174aa;}}
-#lantern{
-  position:absolute; top:40%; left:50%; width:40px; height:60px;
-  background:linear-gradient(#ff8fab,#ff4e80);
-  border-radius:10px; transform:translate(-50%, -50%);
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+.moon{
+  position:absolute;
+  top:100px;left:50%;
+  transform:translateX(-50%);
+  width:180px;height:180px;
+  background:radial-gradient(circle at 35% 35%,#fff8c7,#ffe174 60%,#e4c45f 90%);
+  border-radius:50%;
+  box-shadow:0 0 60px 15px #ffe17444;
+  animation:moonGlow 3s ease-in-out infinite alternate;
+}
+@keyframes moonGlow{
+  to{box-shadow:0 0 80px 30px #ffe17488;}
+}
+.lantern{
+  position:absolute;
+  top:45%;left:50%;
+  width:50px;height:70px;
+  background:linear-gradient(to bottom,#ff8fab,#ff4e80);
+  border-radius:10px;
+  transform-origin:top center;
   animation:swing 3s ease-in-out infinite;
 }
-#lantern::after{
-  content:""; position:absolute; top:-30px; left:50%;
-  width:2px; height:30px; background:#aaa; transform:translateX(-50%);
+.lantern::before{
+  content:"";
+  position:absolute;top:-30px;left:50%;
+  transform:translateX(-50%);
+  width:2px;height:30px;background:#aaa;
 }
 @keyframes swing{
   0%,100%{transform:translate(-50%,-50%) rotate(-6deg);}
   50%{transform:translate(-50%,-50%) rotate(6deg);}
 }
-h1{
-  margin-top:280px; font-size:26px; color:#ffe174;
-  text-shadow:0 0 15px #ffe174aa;
-  animation:fadein 3s ease forwards;
-}
-@keyframes fadein{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
-#envelope{
-  position:absolute; bottom:20%; left:50%;
+button{
+  position:absolute;bottom:20%;left:50%;
   transform:translateX(-50%);
-  width:220px; height:120px; background:#ff8fab;
-  border-radius:8px; cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
-  transition:transform .3s;
+  padding:12px 25px;
+  font-size:1.1em;
+  border:none;
+  border-radius:8px;
+  background:#ff8fab;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 0 10px #ff8fab55;
 }
-#envelope:hover{transform:translateX(-50%) scale(1.05);}
-#msg{
-  position:absolute; bottom:35%; left:50%; transform:translateX(-50%);
-  width:80%; max-width:320px; background:rgba(255,255,255,0.1);
-  border-radius:10px; padding:15px; font-size:18px; display:none;
-  box-shadow:0 0 20px #fff4;
+button:hover{background:#ff4e80;transform:translateX(-50%) scale(1.05);}
+.message{
+  position:absolute;
+  bottom:30%;left:50%;
+  transform:translateX(-50%);
+  width:80%;
+  max-width:350px;
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:10px;
+  font-size:1.1em;
+  text-align:center;
+  display:none;
+  box-shadow:0 0 25px #fff2;
+  animation:fadeMsg 1s ease forwards;
+}
+@keyframes fadeMsg{
+  from{opacity:0;transform:translate(-50%,20px);}
+  to{opacity:1;transform:translate(-50%,0);}
 }
 .heart{
-  position:fixed; bottom:0; font-size:20px; animation:fly 5s linear infinite;
+  position:fixed;
+  bottom:0;
+  font-size:20px;
+  animation:fly 5s linear forwards;
 }
 @keyframes fly{
-  from{transform:translateY(0) scale(1); opacity:1;}
-  to{transform:translateY(-100vh) scale(0.8); opacity:0;}
+  from{transform:translateY(0) scale(1);opacity:1;}
+  to{transform:translateY(-100vh) scale(0.8);opacity:0;}
 }
-canvas{position:fixed; inset:0; pointer-events:none;}
 </style>
 </head>
 <body>
 
-<div id="moon"></div>
-<div id="lantern"></div>
-<h1>🌕 Chúc cậu một đêm Trung Thu thật ấm áp 💛</h1>
-<div id="envelope">💌 Nhấn để mở quà</div>
-<div id="msg">Cậu là ánh trăng khiến mọi thứ trở nên dịu dàng hơn 💫<br><br>Chúc Trung Thu vui vẻ nha 💖</div>
-<canvas id="fireworks"></canvas>
+<h1>🌕 Gửi cậu món quà nhỏ đêm Trung Thu 💌</h1>
+<div class="moon"></div>
+<div class="lantern"></div>
+<button id="open">Mở thư 💖</button>
+<div class="message" id="msg">
+  Trung Thu này tớ chẳng có gì nhiều,<br>
+  chỉ muốn nói rằng...<br><br>
+  🌸 Cậu là ánh trăng khiến cuộc đời tớ dịu dàng hơn 🌙<br><br>
+  Chúc cậu Trung Thu vui vẻ, ngọt như bánh dẻo 💛
+</div>
 
 <script>
-// Hiệu ứng mở phong bì
-document.getElementById("envelope").addEventListener("click",()=>{
-  document.getElementById("msg").style.display="block";
-  for(let i=0;i<20;i++) createHeart();
-  boom();
-});
+const btn=document.getElementById("open");
+const msg=document.getElementById("msg");
 
-// Tim bay
-function createHeart(){
+btn.onclick=()=>{
+  msg.style.display="block";
+  for(let i=0;i<20;i++) heart();
+  btn.style.display="none";
+};
+
+function heart(){
   const h=document.createElement("div");
   h.className="heart";
   h.textContent="💖";
@@ -90,42 +133,7 @@ function createHeart(){
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),5000);
 }
-
-// Pháo hoa bằng canvas
-const c=document.getElementById("fireworks");
-const ctx=c.getContext("2d");
-resize();
-window.onresize=resize;
-function resize(){c.width=innerWidth;c.height=innerHeight;}
-let particles=[];
-function boom(){
-  const x=innerWidth/2, y=innerHeight/2;
-  for(let i=0;i<60;i++){
-    const angle=Math.random()*2*Math.PI;
-    const speed=Math.random()*5+2;
-    particles.push({
-      x,y,
-      vx:Math.cos(angle)*speed,
-      vy:Math.sin(angle)*speed,
-      alpha:1,
-      color:`hsl(${Math.random()*360},100%,60%)`
-    });
-  }
-}
-function draw(){
-  ctx.fillStyle="rgba(0,0,0,0.2)";
-  ctx.fillRect(0,0,c.width,c.height);
-  particles.forEach((p,i)=>{
-    p.x+=p.vx; p.y+=p.vy; p.vy+=0.05; p.alpha-=0.01;
-    ctx.fillStyle=p.color;
-    ctx.globalAlpha=p.alpha;
-    ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fill();
-    if(p.alpha<=0) particles.splice(i,1);
-  });
-  ctx.globalAlpha=1;
-  requestAnimationFrame(draw);
-}
-draw();
 </script>
+
 </body>
 </html>
